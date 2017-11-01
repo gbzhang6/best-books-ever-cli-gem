@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require './lib/best_books_ever'
+require_relative "../lib/best_books_ever"
 
 
-BestBooks::CLI.new.call
+BestBooksEver::CLI.new.call
