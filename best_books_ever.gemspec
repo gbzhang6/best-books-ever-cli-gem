@@ -1,7 +1,5 @@
 # coding: utf-8
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "best_books_ever/version"
+require_relative './best_books_ever/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "best_books_ever"
@@ -33,4 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "nokogiri", ">= 0"
+  spec.add_development_dependency "pry", ">=0"
 end
