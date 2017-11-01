@@ -1,4 +1,4 @@
-class BestBooks::Scraper
+class BestBooksEver::Scraper
 
   def get_page
     Nokogiri::HTML(open('https://www.goodreads.com/list/show/1.Best_Books_Ever'))
@@ -10,7 +10,7 @@ class BestBooks::Scraper
 
   def make_booklist
     scrape_books_attributes.each do |b|
-      BestBooks::Booklist.new_from_top_page(b)
+      BestBooksEver::Booklist.new_from_top_page(b)
     end
   end
 end

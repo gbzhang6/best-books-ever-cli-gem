@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-
 require_relative "../lib/best_books_ever"
-
 
 BestBooksEver::CLI.new.call
