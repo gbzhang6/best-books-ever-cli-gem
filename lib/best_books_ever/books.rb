@@ -24,4 +24,13 @@ class BestBooksEver::Booklist
     @@all
   end
 
+  def self.find(num)
+    self.all[num-1]
+  end
+
+  def bookpage
+    @bookpage ||= Nokogiri::HTML(open(self.url))
+  end
+
+
 end
