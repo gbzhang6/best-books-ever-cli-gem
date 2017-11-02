@@ -6,10 +6,22 @@ class BestBooksEver::Booklist
   def self.new_from_top_page(b)
   self.new(
     b.css("a.bookTitle span.name").text,
-    "www.goodreads.com#{b.css("a").attribute("href").text}",
+    "http://www.goodreads.com#{b.css("a").attribute("href").text}",
     b.css("a.authorName span.name").text,
     b.css("td.number").text
     )
+  end
+
+  def initialize(name=nil, url=nil, author=nil, position=nil)
+    @name = name
+    @url = url
+    @author = author
+    @position = position
+    @@all << self
+  end
+
+  def self.all
+    @@all
   end
 
 end
