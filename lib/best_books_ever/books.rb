@@ -5,7 +5,7 @@ class BestBooksEver::Booklist
 
   def self.new_from_top_page(b)
     self.new(
-      b.css("tbody/tr/td/a.bookTitle/span.name").text,
+      b.css("tbody.tr.td.a.bookTitle.span.name").text,
       "http://www.goodreads.com#{b.css("a").attribute("href").text}",
       b.css("a.authorName span.name").text,
       b.css("td.number").text
@@ -28,12 +28,12 @@ class BestBooksEver::Booklist
     self.all[num-1]
   end
 
-  def bookpage
-    @bookpage ||= Nokogiri::HTML(open(self.url))
+  def doc
+    @doc ||= Nokogiri::HTML(open(self.url))
   end
 
   def author
-    @author ||= bookpage
+    @author ||= doc
   end
 
 

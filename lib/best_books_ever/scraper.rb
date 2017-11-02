@@ -2,6 +2,7 @@ class BestBooksEver::Scraper
 
   def get_page
     Nokogiri::HTML(open('https://www.goodreads.com/list/show/1.Best_Books_Ever'))
+    # sleep 10
   end
 
   def scrape_books_attributes

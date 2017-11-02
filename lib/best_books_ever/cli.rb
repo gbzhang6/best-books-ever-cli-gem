@@ -32,4 +32,19 @@ class BestBooksEver::CLI
     end
   end
 
+  def print_booklist(book)
+    puts ""
+    puts "-------------#{book.name}-#{book.position}-------------"
+    puts ""
+    puts "Author:        #{book.author}"
+    puts ""
+    puts "----------------Description----------------"
+    puts "#{book.description}"
+    puts ""
+  end
+
+
+
+
+
 end
