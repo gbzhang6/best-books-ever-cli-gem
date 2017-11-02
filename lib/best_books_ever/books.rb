@@ -5,7 +5,7 @@ class BestBooksEver::Booklist
 
   def self.new_from_top_page(b)
     self.new(
-      b.css("tbody.tr.td.a.bookTitle.span.name").text,
+      b.css("tr.td.a.bookTitle.span.name").text,
       "http://www.goodreads.com#{b.css("a").attribute("href").text}",
       b.css("a.authorName span.name").text,
       b.css("td.number").text
@@ -33,8 +33,11 @@ class BestBooksEver::Booklist
   end
 
   def author
-    @author ||= doc
+    @author ||= doc.xpath("//div[@class='authorName']/span").text
   end
+
+  def description
+    @description ||=doc.xpath("//div")
 
 
 end

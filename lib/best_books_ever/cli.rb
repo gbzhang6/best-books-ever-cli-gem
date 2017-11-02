@@ -38,12 +38,10 @@ class BestBooksEver::CLI
     puts ""
     puts "Author:        #{book.author}"
     puts ""
-    puts "----------------Description----------------"
+    puts "-------------------Description-------------------"
     puts "#{book.description}"
     puts ""
   end
-
-
 
 
 

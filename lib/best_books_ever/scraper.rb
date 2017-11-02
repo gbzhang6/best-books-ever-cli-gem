@@ -1,12 +1,12 @@
 class BestBooksEver::Scraper
 
   def get_page
-    Nokogiri::HTML(open('https://www.goodreads.com/list/show/1.Best_Books_Ever'))
-    # sleep 10
+    Nokogiri::HTML(open("https://www.goodreads.com/list/show/1.Best_Books_Ever"))
+    sleep 10
   end
 
   def scrape_books_attributes
-    self.get_page.css("table.tableList.js-dataTooltip")
+    self.get_page.css("tbody")
   end
 
   def make_booklist
