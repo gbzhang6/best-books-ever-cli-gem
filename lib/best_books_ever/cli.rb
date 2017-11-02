@@ -20,6 +20,6 @@ class BestBooksEver::CLI
     print_booklist(book)
 
     input = gets.strip.downcase
-    if input
+  end
 
 end
