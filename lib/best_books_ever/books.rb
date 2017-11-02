@@ -3,7 +3,7 @@ class BestBooksEver::Booklist
 
   @@all = []
 
-  def self.new_from_index_page(b)
+  def self.new_from_top_page(b)
   self.new(
     b.css("a.bookTitle span.name").text,
     "www.goodreads.com#{r.css("a").attribute("href").text}",
