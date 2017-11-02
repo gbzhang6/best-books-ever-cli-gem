@@ -27,8 +27,8 @@ class BestBooksEver::CLI
     puts ""
     puts "----------Books #{from_num} - #{from_num+19}----------"
     puts ""
-    BestBooksEver::Booklist.all[from_num-1, 20].each.with_index(from_num) do |book, index|
-      puts "#{index}. #{book.name} - #{book.author}"
+    BestBooksEver::Booklist.all[from_num-1, 20].each.with_index(i) do |book, i|
+      puts "#{i}. #{book.name} - #{book.author}"
     end
   end
 

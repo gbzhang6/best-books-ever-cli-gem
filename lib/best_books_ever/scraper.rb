@@ -6,7 +6,7 @@ class BestBooksEver::Scraper
   end
 
   def scrape_books_attributes
-    self.get_page.css("tbody")
+    self.get_page.css("tableList.js-dataTooltip")
   end
 
   def make_booklist
