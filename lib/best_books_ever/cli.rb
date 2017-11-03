@@ -1,7 +1,7 @@
 class BestBooksEver::CLI
 
   def call
-    BestBooksEver::Scraper.new.make_booklist
+    BestBooksEver::Scraper.new.scrape_books_attributes
     puts "Welcome to the Best Books Ever List from Goodreads!"
     start
   end
