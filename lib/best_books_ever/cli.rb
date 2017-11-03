@@ -20,15 +20,23 @@ class BestBooksEver::CLI
     book = BestBooksEver::Booklist.find(input.to_i)
     print_booklist(book)
 
+    puts "Would you like to see another book? Enter Y or N"
+
     input = gets.strip.downcase
+    if input == "y"
+      start
+    else
+      puts "See you again soon for another great book!"
+      exit
+    end
   end
 
   def print_booklists(from_num)
     puts ""
     puts "----------Books #{from_num} - #{from_num+19}----------"
     puts ""
-    BestBooksEver::Booklist.all[from_num-1, 20].each.with_index(i) do |book, i|
-      puts "#{i}. #{book.name} - #{book.author}"
+    BestBooksEver::Booklist.all[from_num-1, 20].each.with_index(from_num) do |book, index|
+      puts "#{index}. #{book.name} - #{book.author}"
     end
   end
 
