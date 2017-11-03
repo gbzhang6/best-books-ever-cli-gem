@@ -3,23 +3,21 @@ class BestBooksEver::Booklist
 
   @@all = []
 
-  # def self.new_from_top_page(b) #hash student scraper lab
-  #   self.new(
-  #     b.css("tbody.tr.td.a.bookTitle.span.name").text,
-  #     "http://www.goodreads.com#{b.css("a").attribute("href").text}",
-  #     b.css("a.authorName span.name").text,
-  #     b.css("td.number").text
-  #     )
-  #     binding.pry
-  #   end
+  def self.new_from_top_page(b) #hash student scraper lab
+    self.new(
+      b.css("a.bookTitle span").text,
+      b.css("a.authorName span").text,
+      b.css("a.bookTitle @href").first.value,
+      b.css("td.number").text
+      )
+    end
 
-  def initialize
-    @name = book_hash[:name]
-    @url = book_hash[:url]
-    @author = book_hash[:author]
-    @position = book_hash[:position]
+  def initialize (name=nil, url=nil, author=nil, position=nil)
+    @name = name
+    @url = url
+    @author = author
+    @position = position
     @@all << self
-    binding.pry
   end
 
   def self.all
