@@ -9,15 +9,15 @@ class BestBooksEver::Scraper
       # create hash
       book_hash = Hash.new
       # give hash key / values
-      binding.pry
       book_hash[:name] = book.css("a.bookTitle span").text
       book_hash[:author] = book.css("a.authorName span").text
       book_hash[:url] = book.css("a.bookTitle @href").first.value
-      book_hash[:position] = ("td.number").text
+      book_hash[:position] = book.css("td.number").text
       # push hash into book attributes
       book_attributes << book_hash
     end
     #return book attributes
     book_attributes
   end
+
 end
