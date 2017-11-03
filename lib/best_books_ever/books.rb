@@ -19,6 +19,7 @@ class BestBooksEver::Booklist
     @author = book_hash[:author]
     @position = book_hash[:position]
     @@all << self
+    binding.pry
   end
 
   def self.all

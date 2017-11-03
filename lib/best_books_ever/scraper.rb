@@ -1,4 +1,5 @@
 class BestBooksEver::Scraper
+  attr_accessor :name, :author, :url, :position, :book_attributes
   def get_page
     Nokogiri::HTML(open("https://www.goodreads.com/list/show/1.Best_Books_Ever"))
   end
