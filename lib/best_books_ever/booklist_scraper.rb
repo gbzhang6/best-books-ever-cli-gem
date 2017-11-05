@@ -17,10 +17,10 @@ class BestBooksEver::Booklist_Scraper
     self.all
   end
 
-  def initialize (name=nil, url=nil, author=nil, position=nil)
+  def initialize (name=nil, author=nil, url=nil, position=nil)
     @name = name
-    @url = url
     @author = author
+    @url = url
     @position = position
     @@all << self
   end
