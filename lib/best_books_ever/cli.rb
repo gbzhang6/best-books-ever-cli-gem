@@ -32,10 +32,13 @@ class BestBooksEver::CLI
   end
 
   def print_booklists(from_num)
+    #binding.pry
+    puts 'hey'
     puts ""
     puts "----------Books #{from_num} - #{from_num+19}----------"
     puts ""
     BestBooksEver::Booklist.all[from_num-1, 20].each.with_index(from_num) do |book, i|
+      puts "hi there"
       puts "#{i}. #{book.name} - #{book.author}"
     end
   end

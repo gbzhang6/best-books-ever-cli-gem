@@ -3,12 +3,12 @@ class BestBooksEver::Booklist
 
   @@all = []
 
-  def self.new_from_top_page(b) #hash student scraper lab
-    self.new(
-      b.css("a.bookTitle span").text,
-      b.css("a.authorName span").text,
-      b.css("a.bookTitle @href").first.value,
-      b.css("td.number").text
+  def self.new_from_top_page(book) #hash student scraper lab
+    self.new (
+      book.css("a.bookTitle span").text,
+      book.css("a.authorName span").text,
+      book.css("a.bookTitle @href").first.value,
+      book.css("td.number").text
       )
     end
 
@@ -36,6 +36,4 @@ class BestBooksEver::Booklist
     @description ||=doc.css()
     binding.pry
   end
-
-
 end
