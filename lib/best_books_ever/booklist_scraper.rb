@@ -14,7 +14,7 @@ class BestBooksEver::Booklist_Scraper
   def self.bookscraper
     page = Nokogiri::HTML(open('https://www.goodreads.com/list/show/1.Best_Books_Ever'))
 
-    page.css ('table.tableList tr').each do |bk|
+    page.css('tr').each do |bk|
       book = BestBooksEver::Booklist_Scraper.new()
 
       book.name = bk.css('a.bookTitle span').text.strip

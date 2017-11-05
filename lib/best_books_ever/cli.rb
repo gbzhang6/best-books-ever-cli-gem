@@ -1,7 +1,7 @@
 class BestBooksEver::CLI
 
   def call
-    BestBooksEver::Booklist_Scraper.new
+    BestBooksEver::Booklist_Scraper.bookscraper
     puts "Welcome to the Best Books Ever List from Goodreads!"
     start
   end
@@ -32,12 +32,11 @@ class BestBooksEver::CLI
   end
 
   def print_booklists(from_num)
-    binding.pry
+    # binding.pry
     puts ""
     puts "----------Books #{from_num} - #{from_num+19}----------"
     puts ""
     BestBooksEver::Booklist_Scraper.all[from_num-1, 20].each.with_index(from_num) do |book, i|
-      puts "hi there"
       puts "#{i}. #{book.name} - #{book.author}"
     end
   end
