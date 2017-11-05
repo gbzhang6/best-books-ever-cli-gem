@@ -3,26 +3,26 @@ class BestBooksEver::Booklist_Scraper
 
   @@all = []
 
-  def self.bookscraper
-    page = Nokogiri::HTML(open("https://www.goodreads.com/list/show/1.Best_Books_Ever"))
-
-    page.css ("table.tableList tr").each do |bk|
-      book = BestBooksEver::Scraper.new()
-
-      book.name = bk.css("a.bookTitle span").text.strip,
-      book.author = bk.css("a.authorName span").text.strip,
-      book.url = bk.css("a.bookTitle @href").first.value,
-      book.position = bk.css("td.number").text.strip
-    end
-    self.all
-  end
-
-  def initialize (name=nil, author=nil, url=nil, position=nil)
+  def initialize(name=nil, author=nil, url=nil, position=nil)
     @name = name
     @author = author
     @url = url
     @position = position
     @@all << self
+  end
+
+  def self.bookscraper
+    page = Nokogiri::HTML(open('https://www.goodreads.com/list/show/1.Best_Books_Ever'))
+
+    page.css ('table.tableList tr').each do |bk|
+      book = BestBooksEver::Booklist_Scraper.new()
+
+      book.name = bk.css('a.bookTitle span').text.strip
+      book.author = bk.css('a.authorName span').text.strip
+      book.url = bk.css('a.bookTitle @href').first.value
+      book.position = bk.css('td.number').text.strip
+    end
+    self.all
   end
 
   def self.all

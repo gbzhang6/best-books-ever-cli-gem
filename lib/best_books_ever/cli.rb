@@ -32,8 +32,7 @@ class BestBooksEver::CLI
   end
 
   def print_booklists(from_num)
-    #binding.pry
-    puts 'hey'
+    binding.pry
     puts ""
     puts "----------Books #{from_num} - #{from_num+19}----------"
     puts ""
