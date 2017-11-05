@@ -1,7 +1,7 @@
 class BestBooksEver::CLI
 
   def call
-    BestBooksEver::Scraper.new.scrape_books_attributes
+    BestBooksEver::Booklist_Scraper.new
     puts "Welcome to the Best Books Ever List from Goodreads!"
     start
   end
@@ -17,7 +17,7 @@ class BestBooksEver::CLI
     puts "Which book would you like more information on?"
     input = gets.strip
 
-    book = BestBooksEver::Booklist.find(input.to_i)
+    book = BestBooksEver::Booklist_Scraper.find(input.to_i)
     print_booklist(book)
 
     puts "Would you like to see another book? Enter Y or N"
@@ -37,7 +37,7 @@ class BestBooksEver::CLI
     puts ""
     puts "----------Books #{from_num} - #{from_num+19}----------"
     puts ""
-    BestBooksEver::Booklist.all[from_num-1, 20].each.with_index(from_num) do |book, i|
+    BestBooksEver::Booklist_Scraper.all[from_num-1, 20].each.with_index(from_num) do |book, i|
       puts "hi there"
       puts "#{i}. #{book.name} - #{book.author}"
     end
