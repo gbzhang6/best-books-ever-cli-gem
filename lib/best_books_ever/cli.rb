@@ -7,13 +7,13 @@ class BestBooksEver::CLI
   end
 
   def start
-    puts " "
+    puts
     puts "What number books would you like to see? 1-20, 21-40, 41-60, 61-80, 81-100?"
     input = gets.strip.to_i
 
     print_booklists(input)
 
-    puts ""
+    puts
     puts "Which book would you like more information on?"
     input = gets.strip
 
@@ -32,22 +32,22 @@ class BestBooksEver::CLI
   end
 
   def print_booklists(from_num)
-    puts ""
+    puts
     puts "----------Books #{from_num} - #{from_num+19}----------"
-    puts ""
+    puts
     BestBooksEver::Booklist_Scraper.all[from_num-1, 20].each.with_index(from_num) do |book, i|
       puts "#{i}. #{book.name} - #{book.author}"
     end
   end
 
   def print_booklist(book)
-    puts ""
+    puts
     puts "---------No.#{book.position}--#{book.name}--------"
     puts "Author:        #{book.author}"
-    puts ""
+    puts
     puts "-------------------Description-------------------"
     puts "#{book.description}"
-    puts ""
+    puts
   end
 
 end

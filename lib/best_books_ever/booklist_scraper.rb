@@ -40,5 +40,4 @@ class BestBooksEver::Booklist_Scraper
   def description
     @description ||= doc.css('div#description').text.strip.split("\n")[1].strip
   end
-
 end
