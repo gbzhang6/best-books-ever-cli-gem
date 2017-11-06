@@ -21,7 +21,6 @@ class BestBooksEver::Booklist_Scraper
       book.author = bk.css('a.authorName span').text.strip
       book.url = "https://www.goodreads.com#{bk.css('a.bookTitle @href').first.value}"
       book.position = bk.css('td.number').text.strip
-      # binding.pry
     end
     self.all
   end
@@ -39,8 +38,7 @@ class BestBooksEver::Booklist_Scraper
   end
 
   def description
-    @description ||=
-    binding.pry
-    # binding.pry
+    @description ||= doc.css('div#description').text.strip.split("\n")[1].strip
   end
+
 end
