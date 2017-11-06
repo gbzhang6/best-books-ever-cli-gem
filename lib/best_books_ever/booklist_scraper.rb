@@ -39,7 +39,8 @@ class BestBooksEver::Booklist_Scraper
   end
 
   def description
-    @description ||=doc.css()
+    @description ||=
     binding.pry
+    # binding.pry
   end
 end
