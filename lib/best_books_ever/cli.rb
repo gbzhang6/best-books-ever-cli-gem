@@ -6,18 +6,31 @@ class BestBooksEver::CLI
     start
   end
 
+  def not_valid(user_input)
+    if user_input > 100
+      puts "This is not a valid response, please enter a number from 1-100 or type exit."
+      input = gets.strip.to_i
+      not_valid(input)
+    elsif user_input <= 100
+      return user_input
+    else 
+      exit
+    end
+  end
+
   def start
     puts
     puts "What number books would you like to see? 1-20, 21-40, 41-60, 61-80, 81-100?"
-    input = gets.strip.to_i
+    input = not_valid(gets.strip.to_i)
 
     print_booklists(input)
 
     puts
     puts "Which book would you like more information on?"
-    input = gets.strip
+    input = not_valid(gets.strip.to_i)
 
     book = BestBooksEver::Booklist_Scraper.find(input.to_i)
+
     print_booklist(book)
 
     puts "Would you like to see another book? Enter Y or N"
