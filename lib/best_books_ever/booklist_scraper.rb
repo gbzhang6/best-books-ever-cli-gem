@@ -1,4 +1,5 @@
 class BestBooksEver::Booklist_Scraper
+  attr_accessor :description
 
 
   def self.bookscraper
