@@ -2,18 +2,19 @@ class BestBooksEver::CLI
 
   def call
     BestBooksEver::Booklist_Scraper.bookscraper
+    binding.pry
     puts "Welcome to the Best Books Ever List from Goodreads!"
     start
   end
 
   def not_valid(user_input)
-    if user_input > 100
+    if !user_input.between?(1, 100)
       puts "This is not a valid response, please enter a number from 1-100 or type exit."
       input = gets.strip.to_i
       not_valid(input)
     elsif user_input <= 100
       return user_input
-    else 
+    else
       exit
     end
   end
@@ -29,7 +30,8 @@ class BestBooksEver::CLI
     puts "Which book would you like more information on?"
     input = not_valid(gets.strip.to_i)
 
-    book = BestBooksEver::Booklist_Scraper.find(input.to_i)
+    book = BestBooksEver::Book.find(input.to_i)
+    BestBooksEver::Booklist_Scraper.scrape_description(book)
 
     print_booklist(book)
 
@@ -48,7 +50,7 @@ class BestBooksEver::CLI
     puts
     puts "----------Books #{from_num} - #{from_num+19}----------"
     puts
-    BestBooksEver::Booklist_Scraper.all[from_num-1, 20].each.with_index(from_num) do |book, i|
+    BestBooksEver::Book.all[from_num-1, 20].each.with_index(from_num) do |book, i|
       puts "#{i}. #{book.name} - #{book.author}"
     end
   end
