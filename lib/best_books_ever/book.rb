@@ -1,5 +1,5 @@
 class BestBooksEver::Book
-  attr_accessor :name, :author, :position, :url
+  attr_accessor :name, :author, :position, :url, :description
 
   @@all = []
 

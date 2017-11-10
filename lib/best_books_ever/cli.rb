@@ -2,7 +2,7 @@ class BestBooksEver::CLI
 
   def call
     BestBooksEver::Booklist_Scraper.bookscraper
-    binding.pry
+    #binding.pry
     puts "Welcome to the Best Books Ever List from Goodreads!"
     start
   end
